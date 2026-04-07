@@ -7,8 +7,7 @@
     "types": ["vite/client"],
     "skipLibCheck": true,
 
-    /* Path Mapping for Shadcn */
-    "baseUrl": ".",
+    /* Modern Path Mapping (No baseUrl needed) */
     "paths": {
       "@/*": ["./src/*"]
     },
