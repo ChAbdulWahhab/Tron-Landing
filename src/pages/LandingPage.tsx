@@ -49,7 +49,7 @@ export default function LandingPage() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-40"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
             </span>
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/50 group-hover:text-teal-400 transition-colors">v2.0.0 · Stable Build</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/50 group-hover:text-teal-400 transition-colors">v3.1.0 · Stable Build</span>
           </motion.div>
           
           <motion.h1 
@@ -79,7 +79,8 @@ export default function LandingPage() {
             className="flex flex-col items-center gap-6"
           >
             <a 
-              href="/asset/setup/QTron-Installer-v2-x64.exe" 
+              href="https://github.com/ChAbdulWahhab/Tron-QASuite/releases/download/3.1.0/TRONSetup-v3.exe"
+              rel="noopener noreferrer"
               className="group relative flex items-center gap-4 px-10 py-5 bg-white text-black text-sm font-bold rounded-full hover:bg-teal-400 transition-all duration-500 overflow-hidden active:scale-95 shadow-[0_0_60px_-15px_rgba(20,184,166,0.4)]"
             >
               <Download size={18} strokeWidth={2.5} className="group-hover:translate-y-0.5 transition-transform duration-300" />
