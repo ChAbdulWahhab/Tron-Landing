@@ -84,7 +84,7 @@ export default function LandingPage() {
             className="flex flex-col items-center gap-6"
           >
             <a
-              href={`https://github.com/ChAbdulWahhab/Tron-QASuite/releases/download/${APP_VERSION}/TRONSetup-v${APP_VERSION}.exe`}
+              href="https://github.com/ChAbdulWahhab/Tron-QASuite/releases/download/3.1.1/TRON-Setup-v3-1-1.exe"
               rel="noopener noreferrer"
               className="group relative flex items-center gap-4 px-10 py-5 bg-white text-black text-sm font-bold rounded-full hover:bg-teal-400 transition-all duration-500 overflow-hidden active:scale-95 shadow-[0_0_60px_-15px_rgba(20,184,166,0.4)]"
             >
@@ -105,7 +105,7 @@ export default function LandingPage() {
               {macDropdownOpen && (
                 <div className="absolute top-full left-0 right-0 mt-2 py-2 bg-[#0a0a0a] border border-white/10 rounded-xl overflow-hidden z-50">
                   <a
-                    href={`https://github.com/ChAbdulWahhab/Tron-QASuite/releases/download/${APP_VERSION}/TRON-QA-Suite-${APP_VERSION}-x64.dmg`}
+                    href="https://github.com/ChAbdulWahhab/Tron-QASuite/releases/download/3.1.1/TRON-QA-Suite-3-1-1-x64.dmg"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors text-sm text-white/80 hover:text-white"
                   >
@@ -113,7 +113,7 @@ export default function LandingPage() {
                     <span>Intel Mac</span>
                   </a>
                   <a
-                    href={`https://github.com/ChAbdulWahhab/Tron-QASuite/releases/download/${APP_VERSION}/TRON-QA-Suite-${APP_VERSION}-arm64.dmg`}
+                    href="https://github.com/ChAbdulWahhab/Tron-QASuite/releases/download/3.1.1/TRON-QA-Suite-3-1-1-arm64.dmg"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors text-sm text-white/80 hover:text-white"
                   >
