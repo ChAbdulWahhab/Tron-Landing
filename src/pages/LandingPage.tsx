@@ -1,13 +1,28 @@
 import DemoOne from "@/components/demo";
 import Footer from "@/components/layout/Footer";
 import { Zap, Settings, ShieldCheck, ArrowRight, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaWindows, FaApple } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { APP_VERSION } from "../version";
 
 export default function LandingPage() {
   const [macDropdownOpen, setMacDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    document.title = "Tron — Automated QA Testing"
+    const metaTitle = document.querySelector('meta[name="title"]')
+    if (metaTitle) metaTitle.setAttribute("content", "Tron — Automated QA Testing")
+    const ogTitle = document.querySelector('meta[property="og:title"]')
+    if (ogTitle) ogTitle.setAttribute("content", "Tron — Automated QA Testing")
+    const twitterTitle = document.querySelector('meta[property="twitter:title"]')
+    if (twitterTitle) twitterTitle.setAttribute("content", "Tron — Automated QA Testing")
+    
+    const ogImage = document.querySelector('meta[property="og:image"]')
+    if (ogImage) ogImage.setAttribute("content", "/branding/tron-landing-preview.png")
+    const twitterImage = document.querySelector('meta[property="twitter:image"]')
+    if (twitterImage) twitterImage.setAttribute("content", "/branding/tron-landing-preview.png")
+  }, [])
 
   return (
     <div className="relative flex min-h-screen w-full flex-col items-center font-geist text-white overflow-x-hidden selection:bg-teal-500/30">

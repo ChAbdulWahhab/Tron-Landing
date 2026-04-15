@@ -112,6 +112,21 @@ export default function Feedback() {
     }
   }
 
+  useEffect(() => {
+    document.title = "Feedback — TRON"
+    const metaTitle = document.querySelector('meta[name="title"]')
+    if (metaTitle) metaTitle.setAttribute("content", "Feedback — TRON")
+    const ogTitle = document.querySelector('meta[property="og:title"]')
+    if (ogTitle) ogTitle.setAttribute("content", "Feedback — TRON")
+    const twitterTitle = document.querySelector('meta[property="twitter:title"]')
+    if (twitterTitle) twitterTitle.setAttribute("content", "Feedback — TRON")
+    
+    const ogImage = document.querySelector('meta[property="og:image"]')
+    if (ogImage) ogImage.setAttribute("content", "/branding/tron-feedback.png")
+    const twitterImage = document.querySelector('meta[property="twitter:image"]')
+    if (twitterImage) twitterImage.setAttribute("content", "/branding/tron-feedback.png")
+  }, [])
+
   if (submitted || status === 'success') {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center px-6">
@@ -135,8 +150,24 @@ export default function Feedback() {
   }
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center px-6 py-16">
-      <div className="max-w-lg w-full">
+    <div className="relative min-h-screen w-full flex items-center justify-center px-6 py-16 font-geist text-white overflow-x-hidden selection:bg-teal-500/30">
+      {/* Background Video Layer */}
+      <div className="fixed inset-0 z-0 overflow-hidden bg-black">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="absolute min-w-full min-h-full object-cover opacity-40"
+        >
+          <source src="https://cdn.pixabay.com/video/2020/09/11/49714-459345324_large.mp4" type="video/mp4" />
+          <source src="/asset/bg-video.mp4" type="video/mp4" />
+        </video>
+        {/* Darker overlay for Feedback page */}
+        <div className="absolute inset-0 bg-black/60"></div>
+      </div>
+
+      <div className="relative z-10 max-w-lg w-full">
         <div className="text-center mb-10">
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">Send Feedback</h1>
           <p className="text-white/50 text-sm">
