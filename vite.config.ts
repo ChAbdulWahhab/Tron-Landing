@@ -1,10 +1,41 @@
 import fs from "node:fs"
-import path from "path"
+import path from "node:path"
 import { defineConfig, type Plugin } from "vite"
 
 function stripQuery(url: string): string {
   const i = url.indexOf("?")
   return i === -1 ? url : url.slice(0, i)
+}
+
+function versionInjectionPlugin(): Plugin {
+  const injectVersion = () => {
+    const pkgPath = path.resolve(process.cwd(), "package.json")
+    const versionJsonPath = path.resolve(process.cwd(), "public/version.json")
+    const versionGenPath = path.resolve(process.cwd(), "src/version.ts")
+    const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"))
+    const version = pkg.version
+
+    const versionData = {
+      version,
+      releaseDate: new Date().toISOString().split("T")[0],
+      releaseNotes: "Updated version",
+      downloadUrl: `https://tronq.vercel.app/asset/setup/TRONSetup-v${version}.exe`,
+      mandatory: false
+    }
+    fs.writeFileSync(versionJsonPath, JSON.stringify(versionData, null, 2))
+
+    fs.writeFileSync(versionGenPath, `export const APP_VERSION = '${version}' as const\n`)
+  }
+
+  return {
+    name: "tron-version-injection",
+    buildStart() {
+      injectVersion()
+    },
+    writeBundle() {
+      injectVersion()
+    },
+  }
 }
 
 /**
@@ -63,7 +94,7 @@ function publicDocsRewritePlugin(): Plugin {
 }
 
 export default defineConfig({
-  plugins: [publicDocsRewritePlugin()],
+  plugins: [publicDocsRewritePlugin(), versionInjectionPlugin()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

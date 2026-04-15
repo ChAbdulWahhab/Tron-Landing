@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { APP_VERSION } from "../../version";
 
 export default function Footer() {
   return (
@@ -25,6 +26,7 @@ export default function Footer() {
           <div className="flex flex-col gap-3 text-sm font-medium text-white/40">
             <a href="/docs" className="hover:text-teal-400 transition-colors">Documentation</a>
             <a href="https://github.com/ChAbdulWahhab/Tron-QASuite" className="hover:text-teal-400 transition-colors">Github</a>
+            <a href="/feedback" className="hover:text-teal-400 transition-colors">Feedback</a>
             <a href="https://github.com/ChAbdulWahhab/Tron-QASuite/issues" target="_blank" rel="noreferrer" className="hover:text-teal-400 transition-colors">Report a Bug</a>
           </div>
         </div>
@@ -44,7 +46,7 @@ export default function Footer() {
           <div className="flex flex-col gap-3 text-sm font-medium text-white/40">
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-teal-500 shadow-[0_0_10px_rgba(20,184,166,0.5)]"></span>
-              <span>Version 3.1.0-x64</span>
+              <span>Version {APP_VERSION}-x64</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-teal-500 shadow-[0_0_10px_rgba(20,184,166,0.5)]"></span>

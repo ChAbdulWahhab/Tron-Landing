@@ -1,7 +1,9 @@
 import DemoOne from "@/components/demo";
 import Footer from "@/components/layout/Footer";
-import { Download, Zap, Settings, ShieldCheck, ArrowRight } from "lucide-react";
+import { Zap, Settings, ShieldCheck, ArrowRight } from "lucide-react";
+import { FaWindows, FaApple } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { APP_VERSION } from "../version";
 
 export default function LandingPage() {
   return (
@@ -49,7 +51,7 @@ export default function LandingPage() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-40"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
             </span>
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/50 group-hover:text-teal-400 transition-colors">v3.1.0 · Stable Build</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/50 group-hover:text-teal-400 transition-colors">{APP_VERSION} · Stable Build</span>
           </motion.div>
           
           <motion.h1 
@@ -78,13 +80,22 @@ export default function LandingPage() {
             transition={{ delay: 0.8 }}
             className="flex flex-col items-center gap-6"
           >
-            <a 
-              href="https://github.com/ChAbdulWahhab/Tron-QASuite/releases/download/3.1.0/TRONSetup-v3.exe"
+            <a
+              href={`https://github.com/ChAbdulWahhab/Tron-QASuite/releases/download/${APP_VERSION}/TRONSetup-v${APP_VERSION}.exe`}
               rel="noopener noreferrer"
               className="group relative flex items-center gap-4 px-10 py-5 bg-white text-black text-sm font-bold rounded-full hover:bg-teal-400 transition-all duration-500 overflow-hidden active:scale-95 shadow-[0_0_60px_-15px_rgba(20,184,166,0.4)]"
             >
-              <Download size={18} strokeWidth={2.5} className="group-hover:translate-y-0.5 transition-transform duration-300" />
+              <FaWindows size={18} className="group-hover:scale-110 transition-transform duration-300" />
               <span>Get TRON for Windows</span>
+              <ArrowRight size={16} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+            </a>
+            <a
+              href={`https://github.com/ChAbdulWahhab/Tron-QASuite/releases/download/${APP_VERSION}/TRON-QA-Suite-${APP_VERSION}.dmg`}
+              rel="noopener noreferrer"
+              className="group relative flex items-center gap-4 px-10 py-5 bg-white/[0.08] text-white text-sm font-bold rounded-full border border-white/20 hover:bg-white/[0.15] hover:border-white/40 transition-all duration-500 overflow-hidden active:scale-95"
+            >
+              <FaApple size={18} className="group-hover:scale-110 transition-transform duration-300" />
+              <span>Download for macOS</span>
               <ArrowRight size={16} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
             </a>
             <div className="flex items-center gap-6 text-white/20 text-[9px] font-black uppercase tracking-[0.3em]">
