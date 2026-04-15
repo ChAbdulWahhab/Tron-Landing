@@ -1,11 +1,14 @@
 import DemoOne from "@/components/demo";
 import Footer from "@/components/layout/Footer";
-import { Zap, Settings, ShieldCheck, ArrowRight } from "lucide-react";
+import { Zap, Settings, ShieldCheck, ArrowRight, ChevronDown } from "lucide-react";
+import { useState } from "react";
 import { FaWindows, FaApple } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { APP_VERSION } from "../version";
 
 export default function LandingPage() {
+  const [macDropdownOpen, setMacDropdownOpen] = useState(false);
+
   return (
     <div className="relative flex min-h-screen w-full flex-col items-center font-geist text-white overflow-x-hidden selection:bg-teal-500/30">
       
@@ -89,15 +92,37 @@ export default function LandingPage() {
               <span>Get TRON for Windows</span>
               <ArrowRight size={16} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
             </a>
-            <a
-              href={`https://github.com/ChAbdulWahhab/Tron-QASuite/releases/download/${APP_VERSION}/TRON-QA-Suite-${APP_VERSION}.dmg`}
-              rel="noopener noreferrer"
-              className="group relative flex items-center gap-4 px-10 py-5 bg-white/[0.08] text-white text-sm font-bold rounded-full border border-white/20 hover:bg-white/[0.15] hover:border-white/40 transition-all duration-500 overflow-hidden active:scale-95"
-            >
-              <FaApple size={18} className="group-hover:scale-110 transition-transform duration-300" />
-              <span>Download for macOS</span>
-              <ArrowRight size={16} className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-            </a>
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => setMacDropdownOpen(!macDropdownOpen)}
+                className="group relative flex items-center gap-4 px-10 py-5 bg-white/[0.08] text-white text-sm font-bold rounded-full border border-white/20 hover:bg-white/[0.15] hover:border-white/40 transition-all duration-500 w-full justify-center"
+              >
+                <FaApple size={18} className="group-hover:scale-110 transition-transform duration-300" />
+                <span>Download for macOS</span>
+                <ChevronDown size={16} className={`transition-transform duration-300 ${macDropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {macDropdownOpen && (
+                <div className="absolute top-full left-0 right-0 mt-2 py-2 bg-[#0a0a0a] border border-white/10 rounded-xl overflow-hidden z-50">
+                  <a
+                    href={`https://github.com/ChAbdulWahhab/Tron-QASuite/releases/download/${APP_VERSION}/TRON-QA-Suite-${APP_VERSION}-x64.dmg`}
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors text-sm text-white/80 hover:text-white"
+                  >
+                    <span className="text-teal-400 font-mono text-xs">x64</span>
+                    <span>Intel Mac</span>
+                  </a>
+                  <a
+                    href={`https://github.com/ChAbdulWahhab/Tron-QASuite/releases/download/${APP_VERSION}/TRON-QA-Suite-${APP_VERSION}-arm64.dmg`}
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors text-sm text-white/80 hover:text-white"
+                  >
+                    <span className="text-teal-400 font-mono text-xs">arm64</span>
+                    <span>Apple Silicon (M1, M2, M3)</span>
+                  </a>
+                </div>
+              )}
+            </div>
             <div className="flex items-center gap-6 text-white/20 text-[9px] font-black uppercase tracking-[0.3em]">
               <span>Free for Beta</span>
               <span className="w-1 h-1 rounded-full bg-teal-500/40"></span>
