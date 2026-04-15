@@ -19,9 +19,9 @@ export default function LandingPage() {
     if (twitterTitle) twitterTitle.setAttribute("content", "Tron — Automated QA Testing")
     
     const ogImage = document.querySelector('meta[property="og:image"]')
-    if (ogImage) ogImage.setAttribute("content", "/branding/tron-landing-preview.png")
+    if (ogImage) ogImage.setAttribute("content", "https://tronq.vercel.app/branding/tron-landing-preview.png")
     const twitterImage = document.querySelector('meta[property="twitter:image"]')
-    if (twitterImage) twitterImage.setAttribute("content", "/branding/tron-landing-preview.png")
+    if (twitterImage) twitterImage.setAttribute("content", "https://tronq.vercel.app/branding/tron-landing-preview.png")
   }, [])
 
   return (

@@ -122,9 +122,9 @@ export default function Feedback() {
     if (twitterTitle) twitterTitle.setAttribute("content", "Feedback — TRON")
     
     const ogImage = document.querySelector('meta[property="og:image"]')
-    if (ogImage) ogImage.setAttribute("content", "/branding/tron-feedback.png")
+    if (ogImage) ogImage.setAttribute("content", "https://tronq.vercel.app/branding/tron-feedback.png")
     const twitterImage = document.querySelector('meta[property="twitter:image"]')
-    if (twitterImage) twitterImage.setAttribute("content", "/branding/tron-feedback.png")
+    if (twitterImage) twitterImage.setAttribute("content", "https://tronq.vercel.app/branding/tron-feedback.png")
   }, [])
 
   if (submitted || status === 'success') {
